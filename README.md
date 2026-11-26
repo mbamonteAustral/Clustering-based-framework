@@ -1,9 +1,11 @@
-# Clustering-based framework
+# A Clustering-based Framework for Assessing Emotional Separability in Combined Galvanic Skin Response and Photoplethysmography Feature Representations
 
 This repository contains two related Python workflows:
 
 - `data/` contains the CASE-data preprocessing scripts and the feature/label pickle files for participants 1–30.
 - `scripts/` contains the clustering and population-level analysis scripts.
+
+The included `data/xf*.pkl` and `data/y_median*.pkl` files can be used to test the clustering method without downloading the raw CASE dataset. To preprocess the raw data yourself, the CASE Dataset is publicly available at [https://gitlab.com/karan-shr/case_dataset](https://gitlab.com/karan-shr/case_dataset).
 
 The pickle files contain extracted physiological features and valence/arousal labels. Before making this repository public or reusing the files, make sure sharing and redistribution are permitted by the dataset's terms and participant-consent requirements.
 
