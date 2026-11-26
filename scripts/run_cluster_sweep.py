@@ -7,9 +7,8 @@ import sys
 
 import pandas as pd
 
-
 CLUSTER_COUNTS = range(3, 13)
-# CLUSTER_COUNTS = range(3, 5) # For testing purposes, only run for 3 and 4 clusters
+# CLUSTER_COUNTS = range(8, 10) # For testing purposes
 SIGNIFICANCE_THRESHOLD = 0.05
 SUMMARY_TITLE = " Summarizing Separability Analysis"
 

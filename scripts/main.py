@@ -27,7 +27,7 @@ from definitions import *
 start_time = time.time()
 
 participants = np.arange(1, 31)
-# participants = np.arange(23, 25)
+# participants = np.arange(6, 7)
 
 print("Processing data......")
 

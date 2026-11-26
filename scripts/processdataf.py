@@ -9,13 +9,10 @@ import time
 # ---------------  import constants and functions:
 # https://stackoverflow.com/questions/15514593/importerror-no-module-named-when-trying-to-run-python-script
 import sys, os
-from pathlib import Path
 
 # https://stackoverflow.com/questions/8663076/python-best-way-to-add-to-sys-path-relative-to-the-current-running-script
 from definitions import *
 from functions import * #proyect's functions / defs
-
-PICKLE_DIR = Path(__file__).resolve().parents[1] / "data"
 
 def process_data(participant, available_saved_data = False):
 
@@ -68,8 +65,23 @@ def process_data(participant, available_saved_data = False):
     # ---  Load participant Data
 
     if available_saved_data:
-        xf = pd.read_pickle(PICKLE_DIR / f"xf{participant}.pkl")
-        y_median = pd.read_pickle(PICKLE_DIR / f"y_median{participant}.pkl")
+
+        # Add the absolute path to the system path
+        # if features and labels are already saved, then load them:
+        # xf = pd.read_pickle('xf' + participant +'.pkl')  
+
+        if platform == "win32":
+            if socket.gethostname() == "LAPTOP-R7AHG17P":  # pc gamer (Javier)
+                print("corriendo en PC gamer:")                
+                xf = pd.read_pickle(os.path.join(r'C:\Users\Javier\Dropbox\Clustering\c_sldl_1_2_1_reloaded','xf' + participant +'.pkl'))
+                y_median = pd.read_pickle(os.path.join(r'C:\Users\Javier\Dropbox\Clustering\c_sldl_1_2_1_reloaded','y_median' + participant + '.pkl'))  #for testing purposes
+                # xf = pd.read_pickle(os.path.join(r'C:\Users\Javier\Dropbox\pykan','xf' + participant +'.pkl'))
+                # y_median = pd.read_pickle(os.path.join(r'C:\Users\Javier\Dropbox\pykan','y_median' + participant + '.pkl'))  #for testing purposes
+                
+            else: # MFB PC
+                print("corriendo en PC MFB:")
+                xf = pd.read_pickle(os.path.join(r'C:\Users\mbamo\Dropbox\Clustering\c_sldl_1_2_1_reloaded','xf' + participant +'.pkl'))
+                y_median = pd.read_pickle(os.path.join(r'C:\Users\mbamo\Dropbox\Clustering\c_sldl_1_2_1_reloaded','y_median' + participant + '.pkl'))  #for testing purposes
 
         # add segment number to the features dataframe:
         xf['segment_number'] = range(1, len(xf) + 1)

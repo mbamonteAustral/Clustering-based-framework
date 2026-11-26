@@ -3677,6 +3677,11 @@ def plot_clustering_and_label_distribution_per_cluster (xf, xf_plot, low_dimensi
     # ---------------------------------------------------------
     fig.tight_layout()
 
+    # fig_path = os.path.join(
+    #     participant_plots_dir,
+    #     f'{folder_name}_combined_{n_components}.pdf'
+    # )
+
     fig_path = os.path.join(
         participant_plots_dir,
         f'{folder_name}_combined_{n_components}.jpg'
@@ -3686,6 +3691,7 @@ def plot_clustering_and_label_distribution_per_cluster (xf, xf_plot, low_dimensi
 
     try:
         fig.savefig(fig_path, dpi=150)
+        # fig.savefig(fig_path, dpi=800)
         plt.close(fig)
     except Exception as exc:
         print(f"Error saving figure for participant {i}")

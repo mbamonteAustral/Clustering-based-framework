@@ -278,8 +278,8 @@ def plot_p_values(data, title, ymin=None, ymax=None, fig_name='p_values_vs_n_clu
     if ymin is not None or ymax is not None:
         plt.ylim(ymin, ymax)
 
-    plt.savefig(fig_name +'.jpg', dpi=600)
-
+    plt.savefig(fig_name +'.pdf', dpi=800)
+    plt.savefig(fig_name +'.jpg', dpi=800)
 
 
 # ---------------------------------------------------------
@@ -415,7 +415,7 @@ def plot_n_ones(
     )
 
     plt.tight_layout()
-    plt.savefig(fig_name + '.jpg', dpi=600)
+    plt.savefig(fig_name + '.pdf', dpi=800)
 
 
 # ---------------------------------------------------------
