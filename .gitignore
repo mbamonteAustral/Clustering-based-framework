@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.vscode/
+*.log
+desktop.ini
+seminal_script/in_progress/cluster_sweep/
