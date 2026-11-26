@@ -15,7 +15,7 @@ from pathlib import Path
 from definitions import *
 from functions import * #proyect's functions / defs
 
-PICKLE_DIR = Path(__file__).resolve().parents[2] / "data"
+PICKLE_DIR = Path(__file__).resolve().parents[1] / "data"
 
 def process_data(participant, available_saved_data = False):
 

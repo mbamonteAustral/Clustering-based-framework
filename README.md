@@ -3,7 +3,7 @@
 This repository contains two related Python workflows:
 
 - `data/` contains the CASE-data preprocessing scripts and the feature/label pickle files for participants 1–30.
-- `seminal_script/in_progress/` contains the clustering and population-level analysis scripts.
+- `scripts/` contains the clustering and population-level analysis scripts.
 
 The pickle files contain extracted physiological features and valence/arousal labels. Before making this repository public or reusing the files, make sure sharing and redistribution are permitted by the dataset's terms and participant-consent requirements.
 
@@ -44,12 +44,12 @@ To change the participant range, edit the `participants` assignment in `data/mai
 
 ## Clustering and population analysis
 
-The scripts under `seminal_script/in_progress/` read the `xf<participant>.pkl` and `y_median<participant>.pkl` files from `data/`. In [`seminal_script/in_progress/processdataf.py`](seminal_script/in_progress/processdataf.py), `PICKLE_DIR` near the top points to this folder by default. Change it if you keep the pickle files elsewhere.
+The scripts under `scripts/` read the `xf<participant>.pkl` and `y_median<participant>.pkl` files from `data/`. In [`scripts/processdataf.py`](scripts/processdataf.py), `PICKLE_DIR` near the top points to this folder by default. Change it if you keep the pickle files elsewhere.
 
-Run commands from `seminal_script\in_progress`:
+Run commands from `scripts`:
 
 ```powershell
-cd seminal_script\in_progress
+cd scripts
 python main.py
 ```
 
@@ -61,4 +61,4 @@ python run_cluster_sweep.py
 
 Alternatively, run `batch.bat` from this folder. It starts the sweep, writes a log, then runs `show_global_results.py`. Sweep outputs are saved under `cluster_sweep/`.
 
-The Python files in `seminal_script/in_progress/` are included as requested; the `cluster_sweep/` output folder and its logs are not included.
+The Python files and `batch.bat` are in `scripts/`; the `cluster_sweep/` output folder and its logs are not included.

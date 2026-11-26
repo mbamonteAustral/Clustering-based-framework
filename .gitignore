@@ -3,4 +3,4 @@ __pycache__/
 .vscode/
 *.log
 desktop.ini
-seminal_script/in_progress/cluster_sweep/
+scripts/cluster_sweep/
