@@ -22,7 +22,7 @@ TensorFlow installation can depend on your operating system and hardware; use th
 
 ## CASE preprocessing
 
-The root-level `main.py` calls `process_data()` for participants 1 and 2, reads CASE CSVs, and writes `xf<participant>.pkl` and `y_median<participant>.pkl` next to the scripts.
+The root-level `main.py` calls `process_data()` for participants 1–30, reads CASE CSVs, and writes `xf<participant>.pkl` and `y_median<participant>.pkl` next to the scripts.
 
 1. Download/extract the CASE data. The expected files include:
    - `interpolated/physiological/sub_<participant>.csv`
@@ -39,7 +39,7 @@ The root-level `main.py` calls `process_data()` for participants 1 and 2, reads 
    python main.py
    ```
 
-To select other participants, edit line 26 (`participants = np.arange(1, 3)`) in the root-level `main.py`. Generated pickle files are written into the repository root and can replace existing files with the same names.
+To change the participant range, edit the `participants` assignment in the root-level `main.py`. Generated pickle files are written into the repository root and can replace existing files with the same names.
 
 ## Clustering and population analysis
 

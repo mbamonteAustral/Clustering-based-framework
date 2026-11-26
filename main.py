@@ -21,9 +21,9 @@ with tf.device('/CPU:0'):
     # Record the start time
     start_time = time.time()
 
-    # participants = np.arange(1, 31)  # participant from 1 to 30
+    participants = np.arange(1, 31)  # participant from 1 to 30
 
-    participants = np.arange(1, 3)  # participant from 1 to 30
+    # participants = np.arange(1, 3)  # participant from 1 to 30
 
 
 
