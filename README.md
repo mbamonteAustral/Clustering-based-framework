@@ -2,7 +2,7 @@
 
 This repository contains two related Python workflows:
 
-- The repository root contains CASE-data preprocessing scripts and the generated feature/label pickle files for participants 1–30.
+- `data/` contains the CASE-data preprocessing scripts and the feature/label pickle files for participants 1–30.
 - `seminal_script/in_progress/` contains the clustering and population-level analysis scripts.
 
 The pickle files contain extracted physiological features and valence/arousal labels. Before making this repository public or reusing the files, make sure sharing and redistribution are permitted by the dataset's terms and participant-consent requirements.
@@ -22,13 +22,13 @@ TensorFlow installation can depend on your operating system and hardware; use th
 
 ## CASE preprocessing
 
-The root-level `main.py` calls `process_data()` for participants 1–30, reads CASE CSVs, and writes `xf<participant>.pkl` and `y_median<participant>.pkl` next to the scripts.
+[`data/main.py`](data/main.py) calls `process_data()` for participants 1–30, reads CASE CSVs, and writes `xf<participant>.pkl` and `y_median<participant>.pkl` into `data/`.
 
 1. Download/extract the CASE data. The expected files include:
    - `interpolated/physiological/sub_<participant>.csv`
    - `interpolated/annotations/sub_<participant>.csv`
    - `metadata/seqs_order_num_csv.csv`
-2. In the root-level [`processdataf.py`](processdataf.py), edit the dataset configuration near the top:
+2. In [`data/processdataf.py`](data/processdataf.py), edit the dataset configuration near the top:
    - Lines 14–19: Windows default (`WINDOWS_DATASET_CONFIG`).
    - Lines 20–25: Linux default (`LINUX_DATASET_CONFIG`).
    - Lines 26–36: optional Windows computer-name overrides (`HOST_DATASET_CONFIGS`).
@@ -36,19 +36,15 @@ The root-level `main.py` calls `process_data()` for participants 1–30, reads C
 4. Run from the repository root:
 
    ```powershell
+   cd data
    python main.py
    ```
 
-To change the participant range, edit the `participants` assignment in the root-level `main.py`. Generated pickle files are written into the repository root and can replace existing files with the same names.
+To change the participant range, edit the `participants` assignment in `data/main.py`. Generated pickle files are written into `data/` and can replace existing files with the same names.
 
 ## Clustering and population analysis
 
-The scripts under `seminal_script/in_progress/` read the `xf<participant>.pkl` and `y_median<participant>.pkl` files. In [`seminal_script/in_progress/processdataf.py`](seminal_script/in_progress/processdataf.py), update the pickle directory in both Windows branches if your files are elsewhere:
-
-- Lines 76–77: the `LAPTOP-R7AHG17P` branch.
-- Lines 83–84: the other Windows-computer branch.
-
-Change the directory string in each `pd.read_pickle(os.path.join(...))` call to the folder containing the matching `xf*.pkl` and `y_median*.pkl` files. The repository's copies are in its root folder. This is separate from the raw CASE CSV location configured in the root-level `processdataf.py`.
+The scripts under `seminal_script/in_progress/` read the `xf<participant>.pkl` and `y_median<participant>.pkl` files from `data/`. In [`seminal_script/in_progress/processdataf.py`](seminal_script/in_progress/processdataf.py), `PICKLE_DIR` near the top points to this folder by default. Change it if you keep the pickle files elsewhere.
 
 Run commands from `seminal_script\in_progress`:
 
